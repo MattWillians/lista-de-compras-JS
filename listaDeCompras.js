@@ -58,6 +58,62 @@ function iniciarCadastro(){
     }
 }
 
+function removerItens(){
+    while (true){
+
+        const iniciarRemocao = prompt("Deseja remover algum item? 1 - Sim | 2 - Não")
+
+        if (iniciarRemocao == 1){
+
+            console.log("Listas: 1-FRUTAS, 2-LATICINEOS, 3-CONGELADOS E 4-DOCES")
+            const listaDesejada = prompt("Qual lista vamos editar?")
+
+            if (listaDesejada == 1){
+
+                console.log(`Frutas: ${frutas}`)
+                let removerItem = prompt("Qual item vamos remover?")
+                frutas.splice(frutas.indexOf(removerItem), 1)
+                continue
+                
+            } else if (listaDesejada == 2){
+
+                console.log(`Laticineos: ${laticinios}`)
+                let removerItem = prompt("Qual item vamos remover?")
+                laticinios.splice(laticinios.indexOf(removerItem), 1)
+                continue
+
+            } else if (listaDesejada == 3){
+
+                console.log(`Congelados: ${congelados}`)
+                let removerItem = prompt("Qual item vamos remover?")
+                congelados.splice(congelados.indexOf(removerItem), 1)
+                continue
+
+            } else if (listaDesejada == 4){
+
+                console.log(`Doces: ${doces}`)
+                let removerItem = prompt("Qual item vamos remover?")
+                doces.splice(doces.indexOf(removerItem), 1)
+                continue
+
+            } else {
+
+                alert("Digite uma opção existente")
+                continue
+            }
+        } else if (iniciarRemocao == 2){
+
+            alert("Remoção finalizada")
+            break
+
+        } else {
+
+            alert("Opção inexistente")
+            continue
+        }
+    }
+}
+
 //Função dedicada a SAIDA DO APLICATIVO E AMOSTRAGEM DO MENU
 function sairDoAplicativo(){
     
@@ -73,11 +129,11 @@ function sairDoAplicativo(){
 }
 
 //MENU INICIAL + EXECUÇÃO DO CODIGO
+alert("Bem vindo(a) a Lista de Compras do Matt");
 while (true){
     
     //INICIO DO LAÇO!
-    alert("Bem vindo(a) a Lista de Compras do Matt");
-    const iniciarApp = prompt("Para Cadastrar, digite 1 | Para encerrar e receber sua lista, digite 2");
+    const iniciarApp = prompt("Para Cadastrar, digite 1 | Para editar a lista, digite 2 | Encerrar, 3");
 
     //Inicio do Aplicativo!
     if (iniciarApp == 1){
@@ -87,12 +143,17 @@ while (true){
 
     } else if (iniciarApp == 2){
         
+        removerItens();
+        continue;
+
+    } else if (iniciarApp == 3) {
+        
         sairDoAplicativo();
         break;
 
     } else {
-        
-        alert("Por favor, digite uma opção disponivel!");
+
+        alert("Digite uma opção existente")
         continue;
 
     }
